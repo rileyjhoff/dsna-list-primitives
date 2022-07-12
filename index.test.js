@@ -6,6 +6,7 @@ const {
   fizzBuzz,
   anagrams,
   uniqueString,
+  uniqueChar,
 } = require('.');
 
 describe('reverseWords', () => {
@@ -70,3 +71,11 @@ describe('uniqueString', () => {
     expect(uniqueString([ 'abc', 'acb', 'bac', 'foo', 'bca', 'cab', 'cba' ])).toBe('foo');
   });
 });
+
+describe('uniqueChar', () => {
+  it('returns the first instance of a unique character in a string', () => {
+    expect(uniqueChar('abdacabad')).toBe('c');
+    expect(uniqueChar('abacabaabacaba')).toBe('_');
+    expect(uniqueChar('abacabad')).toBe('c');
+  })
+})

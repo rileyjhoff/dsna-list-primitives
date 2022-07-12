@@ -142,6 +142,28 @@ function uniqueString(strings) {
     }
 }
 
+function uniqueChar(string) {
+    const chars = string.split('').sort();
+    console.log(chars);
+    // we now have a list of all the characters in the string in order
+    // we can tell if a character is unique because it won't have
+    // itself adjacent to it in either direction in a sorted list
+    for (let i = 0; i < chars.length; i++) {
+        const current = chars[i];
+        const prev = chars[i - 1];
+        // check prev so we don't see the end of a list as unique
+        // took me a while honestly. didn't realize the logic
+        // works slightly differently for later duplicates in a list
+        const next = chars[i + 1];
+        //check next so we don't see the start of a list as unique
+        if (current !== prev && current !== next) {
+            return chars[i];
+        }
+      }
+    return '_';
+}
+
+// console.log(uniqueChar('abdacabad'));
 // uniqueString([ 'Aa', 'aaa', 'aaaaa', 'BbBb', 'Aaaa', 'AaAaAa', 'a' ]);
 // console.log(anagrams('superintendes', 'unpredestined'));
 // console.log(fizzBuzz(16));
@@ -155,5 +177,6 @@ module.exports = {
   at,
   fizzBuzz,
   anagrams,
-  uniqueString
+  uniqueString,
+  uniqueChar
 };
