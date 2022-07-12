@@ -103,6 +103,46 @@ function anagrams(wordOne, wordTwo) {
   return wordOneSorted === wordTwoSorted;
 }
 
+function uniqueString(strings) {
+    // this is awful and probably not how you're supposed to do it
+    // but it DOES work. for the given test cases, anyway
+    let seenStrings = {};
+    // empty object to keep track of which letters are present
+    for (let i = 0; i < strings.length; i++) {
+        // look at each string
+        let letters = strings[i].split('');
+        // look at each letter in the string
+        const unique = [...new Set(letters)];
+        // make it into a set and back to get the unique letters
+        for (let letter of unique) {
+            if (!seenStrings[letter]) {
+                // basically just keeps track of the count of each letter
+                seenStrings[letter] = 1;
+            } else {
+                seenStrings[letter]++;
+            }
+        }
+    }
+    // here we have gone over the entire array of strings and counted
+    // how often each letter has appeared. O(n) thus far
+    for (let i = 0; i < strings.length; i++) {
+        // go back over the strings
+        let letters = strings[i].split('');
+        // back into the letters
+        for (let letter of letters) {
+            if (seenStrings[letter] === 1) {
+                // if we find a letter that only shows up once
+                // as i understand it, only the unique string has letters
+                // that only show up once
+                return strings[i];
+                // so we return the first string with a letter
+                // that only shows up once
+            }
+        }
+    }
+}
+
+// uniqueString([ 'Aa', 'aaa', 'aaaaa', 'BbBb', 'Aaaa', 'AaAaAa', 'a' ]);
 // console.log(anagrams('superintendes', 'unpredestined'));
 // console.log(fizzBuzz(16));
 // console.log(oddishOrEvenish(41));
@@ -115,4 +155,5 @@ module.exports = {
   at,
   fizzBuzz,
   anagrams,
+  uniqueString
 };

@@ -5,6 +5,7 @@ const {
   at,
   fizzBuzz,
   anagrams,
+  uniqueString,
 } = require('.');
 
 describe('reverseWords', () => {
@@ -60,5 +61,12 @@ describe('anagrams', () => {
   it('should take two words as arguments and returns true if they are anagrams (contain the exact same letters) and false otherwise.', () => {
     expect(anagrams('superintended', 'unpredestined')).toBe(true);
     expect(anagrams('pictorialness', 'documentarily')).toBe(false);
+  });
+});
+
+describe('uniqueString', () => {
+  it('returns the unique string of an array', () => {
+    expect(uniqueString([ 'Aa', 'aaa', 'aaaaa', 'BbBb', 'Aaaa', 'AaAaAa', 'a' ])).toBe('BbBb');
+    expect(uniqueString([ 'abc', 'acb', 'bac', 'foo', 'bca', 'cab', 'cba' ])).toBe('foo');
   });
 });
