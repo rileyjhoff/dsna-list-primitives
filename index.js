@@ -60,9 +60,11 @@ function oddishOrEvenish(number) {
 
 function at(arr, index) {
   let positiveIndex = index;
+  // turn the index to a positive number, if negative
   if (index < 0) {
     positiveIndex = arr.length + index;
   }
+  // return the item in the array at that positive index number
   return arr[positiveIndex];
 }
 
