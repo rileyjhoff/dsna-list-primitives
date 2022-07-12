@@ -1,4 +1,11 @@
-const { reverseWords, titleCaseWords, oddishOrEvenish, at, fizzBuzz } = require('.');
+const {
+  reverseWords,
+  titleCaseWords,
+  oddishOrEvenish,
+  at,
+  fizzBuzz,
+  anagrams,
+} = require('.');
 
 describe('reverseWords', () => {
   it('should reverse the words of a sentence', () => {
@@ -29,10 +36,29 @@ describe('at', () => {
 describe('fizzBuzz', () => {
   it('the fizzbuzz. i don wanna write it', () => {
     expect(fizzBuzz(16)).toEqual([
-      1, 2, 'Fizz', 4, 'Buzz', 
-      'Fizz', 7, 8, 'Fizz', 'Buzz', 
-      11, 'Fizz', 13, 14, 'FizzBuzz', 
-      16
+      1,
+      2,
+      'Fizz',
+      4,
+      'Buzz',
+      'Fizz',
+      7,
+      8,
+      'Fizz',
+      'Buzz',
+      11,
+      'Fizz',
+      13,
+      14,
+      'FizzBuzz',
+      16,
     ]);
+  });
+});
+
+describe('anagrams', () => {
+  it('should take two words as arguments and returns true if they are anagrams (contain the exact same letters) and false otherwise.', () => {
+    expect(anagrams('superintended', 'unpredestined')).toBe(true);
+    expect(anagrams('pictorialness', 'documentarily')).toBe(false);
   });
 });
