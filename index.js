@@ -68,7 +68,35 @@ function at(arr, index) {
   return arr[positiveIndex];
 }
 
+function fizzBuzz(number) {
+    let arr = [];
+    for (let i = 1; i <= number; i++) {
+        // each number in the array has 4 possible cases
+        if (i % 3 === 0) {
+            if (i % 5 === 0) {
+                arr[i-1] = 'FizzBuzz';
+                // first case: evenly divisible by 3 and 5
+                // so we print fizzbuzz
+            } else {
+                arr[i-1] = 'Fizz';
+                // second case: divisible by 3 only
+                // so we print fizz
+            }
+        } else if (i % 5 === 0) {
+            arr[i-1] = 'Buzz';
+            // third case: divisible by 5 only
+            // so we print buzz
+        } else {
+            arr[i-1] = i;
+            // fourth case: evenly divisible by neither
+            // so we print the number itself
+        }
+    }
+    return arr;
+}
+
+console.log(fizzBuzz(16));
 // console.log(oddishOrEvenish(41));
 // console.log(titleCaseWords('alchemy GOLD roCKs'));
 
-module.exports = { reverseWords, titleCaseWords, oddishOrEvenish, at };
+module.exports = { reverseWords, titleCaseWords, oddishOrEvenish, at, fizzBuzz };
