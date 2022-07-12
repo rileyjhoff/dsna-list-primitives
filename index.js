@@ -42,6 +42,23 @@ function titleCaseWords(sentence) {
   return newSentence;
 }
 
-console.log(titleCaseWords('alchemy GOLD roCKs'));
+function oddishOrEvenish(number) {
+    let digits = number.toString().split('');
+    // get each digit of the number
+    let sum = 0;
+    for (let digit of digits) {
+        sum = sum += Number(digit);
+        // cast to number then add them in sequence
+    }
+    if (sum % 2 !== 0) {
+        // number mod 2 being 0 means number is even
+        return 'Oddish';
+    } else {
+        return "Evenish";
+    }
+}
 
-module.exports = { reverseWords, titleCaseWords };
+// console.log(oddishOrEvenish(41));
+// console.log(titleCaseWords('alchemy GOLD roCKs'));
+
+module.exports = { reverseWords, titleCaseWords, oddishOrEvenish };
