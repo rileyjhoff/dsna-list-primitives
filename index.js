@@ -17,9 +17,11 @@ function titleCaseWords(sentence) {
   let words = lowerCaseSentence.split(' ');
   for (let i = 0; i < words.length; i++) {
     let word = words[i];
-    const letters = word.split('');
-    letters[0] = letters[0].toUpperCase();
-    word = letters.join('');
+    const firstLetter = word.slice(0, 1).toUpperCase();
+    word = firstLetter + word.slice(1, word.length);
+    // const letters = word.split('');
+    // letters[0] = letters[0].toUpperCase();
+    // word = letters.join('');
     words[i] = word;
   }
   const newSentence = words.join(' ');
